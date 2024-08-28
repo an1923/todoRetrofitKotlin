@@ -1,16 +1,22 @@
 package com.anu.todoretrofit.network
 
 import com.anu.todoretrofit.model.Todo
-import retrofit2.Response
+import com.anu.todoretrofit.model.TodoParent
+import com.anu.todoretrofit.model.TodoPost
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface TodoApi {
 
-    @GET(value = "/todos")
-    suspend fun getTodos(): List<Todo>
+    @GET(value = "/v1/todos")
+    suspend fun getTodos(): TodoParent
 
-    @POST("posts")
-    suspend fun createTodo(@Body todo: Todo)
+    @POST("/v1/todos")
+    suspend fun createTodo(@Body todo: TodoPost)
+
+    @DELETE("/v1/todos/{id}")
+    suspend fun deleteTodo(@Path("id") id: String)
 }

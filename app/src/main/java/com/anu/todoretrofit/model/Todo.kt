@@ -1,8 +1,15 @@
 package com.anu.todoretrofit.model
 
 data class Todo(
-    val completed: Boolean,
-    val id: Int,
+    val _id: String,
+    val created_at: String,
+    val is_completed: Boolean,
     val title: String,
-    val userId: Int
+    val updated_at: String
+)
+
+data class TodoPost(
+    val title: String,
+    val description: String,
+    val is_completed: Boolean
 )
