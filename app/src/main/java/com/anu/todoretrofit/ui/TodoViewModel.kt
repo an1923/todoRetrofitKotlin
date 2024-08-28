@@ -49,4 +49,10 @@ class TodoViewModel : ViewModel() {
             getTodoList()
         }
     }
+
+    fun updateTodo(todo: TodoPost, id: String){
+        viewModelScope.launch {
+            RetrofitInstance.api.updateTodo(id = id, todo = todo)
+        }
+    }
 }

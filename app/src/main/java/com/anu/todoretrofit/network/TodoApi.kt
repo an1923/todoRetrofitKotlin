@@ -7,6 +7,7 @@ import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface TodoApi {
@@ -19,4 +20,7 @@ interface TodoApi {
 
     @DELETE("/v1/todos/{id}")
     suspend fun deleteTodo(@Path("id") id: String)
+
+    @PUT("v1/todos/{id}")
+    suspend fun updateTodo(@Path("id") id: String, @Body todo: TodoPost)
 }
